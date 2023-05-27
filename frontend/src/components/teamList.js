@@ -5,8 +5,12 @@ function TeamList({ teams }) {
           return <TeamShow key={team.id} team={team} />
      });
      return (
-          <div>{renderedList}</div>
+          <div className="team-list mx-6">
+               {renderedList}
+          </div>
      );
 }
 
 export default TeamList;
+
+
