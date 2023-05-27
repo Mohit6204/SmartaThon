@@ -1,6 +1,8 @@
-function Dashboard() {
+import TeamList from "./teamList";
+
+function Dashboard({ teams }) {
      return (
-          <h1>Dashbaord</h1>
+          <TeamList teams={teams} />
      );
 }
 export default Dashboard;
