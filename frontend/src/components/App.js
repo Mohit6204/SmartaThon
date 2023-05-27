@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import 'bulma/css/bulma.css'
-import './App.css';
 import Navbar from "./navbar";
 import CreateTeam from "./CreateTeam";
 import Footer from "./Footer";
@@ -23,17 +22,19 @@ function App() {
     setTeams(updatedTeam);
   }
 
+  
   return (
     <div className="App">
       <Navbar />
       <Routes>
         <Route path="/" element={<h1>Home</h1>} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/create" element={<CreateTeam onadd={addTeam} />} />
+        <Route path="/create" element={<CreateTeam onAdd={addTeam} />} />
         <Route path="/Teams" element={<Teams />} />
         <Route path="/Accepted" element={<Accepted />} />
         <Route path="/Pending" element={<Pending />} />
       </Routes>
+      <TeamList teams={teams}/>
       <Footer />
     </div >
   );
