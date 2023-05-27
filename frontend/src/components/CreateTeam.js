@@ -29,26 +29,29 @@ function Createteam({ onAdd }) {
      }
 
      return (
-          <div className="rform">
-               <form>
-                    <div>
-                         <label htmlFor="title">Title</label>
+          <div className="team-create">
+               <div className="rform">
+                    <form>
+                         <h3>Add Team Details.</h3>
+                         <div>
+                              <label htmlFor="title">Title</label>
+                              <br></br>
+                              <input type="text" id="title" onChange={handlechange} name="title" value={team.title}></input>
+                         </div>
+                         <div>
+                              <label htmlFor="discription">Discription</label>
+                              <br></br>
+                              <textarea id="description" onChange={handlechange} name="description" value={team.description}></textarea>
+                         </div>
+                         <div>
+                              <label htmlFor="req">Number of Requirements</label>
+                              <br></br>
+                              <input type="number" id="req" onChange={handlechange} name="number" value={team.number}></input>
+                         </div>
                          <br></br>
-                         <input type="text" id="title" onChange={handlechange} name="title" value={team.title}></input>
-                    </div>
-                    <div>
-                         <label htmlFor="discription">Discription</label>
-                         <br></br>
-                         <textarea id="description" onChange={handlechange} name="description" value={team.description}></textarea>
-                    </div>
-                    <div>
-                         <label htmlFor="req">Number of Requirements</label>
-                         <br></br>
-                         <input type="number" id="req" onChange={handlechange} name="number" value={team.number}></input>
-                    </div>
-                    <br></br>
-                    <Button variant="primary" onClick={submitteam}>Submit</Button>
-               </form>
+                         <Button variant="primary" onClick={submitteam}>Submit</Button>
+                    </form>
+               </div>
           </div>
      );
 }

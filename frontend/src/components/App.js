@@ -5,7 +5,6 @@ import Navbar from "./navbar";
 import CreateTeam from "./CreateTeam";
 import Footer from "./Footer";
 import axios from 'axios';
-import TeamList from "./teamList";
 import Accepted from "./accepted";
 import Pending from "./pending";
 import { Routes, Route } from "react-router-dom";
@@ -28,8 +27,8 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<h1>Home</h1>} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/create" element={<CreateTeam onadd={addTeam} />} />
+        <Route path="/dashboard" element={<Dashboard teams={teams} />} />
+        <Route path="/create" element={<CreateTeam onAdd={addTeam} />} />
         <Route path="/Teams" element={<Teams />} />
         <Route path="/Accepted" element={<Accepted />} />
         <Route path="/Pending" element={<Pending />} />
