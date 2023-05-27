@@ -13008,39 +13008,42 @@ screen and (min-width:769px) {
      padding: 20px
 }
 
-.book-create {
+.team-create {
      background-color: #00d1b2;
-     bottom: 0;
+     /* bottom: 0; */
      padding: 20px 40px 30px;
      position: fixed;
      width: 100%
 }
 
-.book-create h3 {
-     color: #fff;
+.team-create h3 {
+     color: #000000;
      font-size: 24px;
      font-weight: 700
 }
 
-.book-create form {
+.team-create form {
      align-items: flex-start;
-     display: flex;
+     /* display: flex; */
      flex-direction: column
 }
 
-.book-create form input {
+.team-create form input {
      margin-bottom: 5px
 }
 
-.book-list {
-     display: flex;
+.team-list {
+     /* display: flex; */
+     align-self: center;
      flex-wrap: wrap;
      margin: auto;
-     max-width: 1024px
+     max-width: 1024px;
+     margin-top: 20px;
+     padding: 20px;
 }
 
 @media screen and (max-width:960px) {
-     .book-list {
+     .team-list {
           align-items: center;
           display: flex;
           flex-direction: row;
@@ -13050,57 +13053,60 @@ screen and (min-width:769px) {
      }
 }
 
-.book-show {
+.team-show {
      border: 1px solid gray;
-     border-radius: 5px;
+     /* border-radius: 5px; */
      margin: 10px;
      padding: 20px;
-     width: 300px
+     /* width: 300px */
 }
 
-.book-edit {
+.team-edit {
      align-items: flex-start;
      display: flex;
      flex-direction: column
 }
 
-.book-edit button {
+.team-edit button {
      margin: 10px 0
 }
 
-.book-show {
+
+
+/* Team show CSS  */
+/* .team-show img {
+     margin-top: 10px;
+     width: 100%
+}
+
+.team-show button {
+     margin-right: 5px
+} */
+
+.team-show {
      align-self: flex-start;
      box-shadow: 0 0 4px #c8c8c8;
      position: relative
 }
 
 @media screen and (max-width:961px) {
-     .book-show {
+     .team-show {
           align-self: center
      }
 }
 
-.book-show h3 {
+.team-show h3 {
      font-size: 24px
 }
 
-.book-show .actions {
-     margin-left: 10px;
+.team-show .actions {
+     margin: 10px;
      position: absolute;
      right: 0;
-     top: 5px
+     top: 5px;
 }
 
-.book-show img {
-     margin-top: 10px;
-     width: 100%
-}
-
-.book-show button {
-     margin-right: 5px
-}
-
-.book-show .edit {
+.team-show .edit {
      background-color: hsla(0, 0%, 4%, .2);
      border: none;
      border-radius: 9999px;
@@ -13121,8 +13127,8 @@ screen and (min-width:769px) {
      width: 20px
 }
 
-.book-show .edit:after {
-     color: #fff;
+.team-show .edit:after {
+     color: #000000;
      content: "✎";
      display: block;
      font-size: 15px;
