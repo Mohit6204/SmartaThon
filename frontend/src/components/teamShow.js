@@ -1,12 +1,16 @@
-function ProfileCard({ teams }) {
+function TeamShow({ team }) {
      return (
           <div className="card" p-3>
-               <div className="card-header-title">{teams.title}</div>
                <div className="card-content">
-                    <div className="media-content">
-                         <p className="title is-4">{teams.description}</p>
+                    <div class="media-content">
+                         <p class="title is-4">{team.title}</p>
+                         <p class="subtitle is-6">Members Required {team.number}</p>
                     </div>
-                    <p class="subtitle">{teams.number}</p>
+                    <div class="card-content">
+                         <div class="content">
+                              {team.description}
+                         </div>
+                    </div>
                </div>
                <footer class="card-footer">
                     <p class="card-footer-item">
@@ -19,4 +23,4 @@ function ProfileCard({ teams }) {
      );
 }
 
-export default ProfileCard;
+export default TeamShow;

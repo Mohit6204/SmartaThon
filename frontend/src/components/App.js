@@ -1,35 +1,41 @@
-import React from "react";
-import { useState } from "react";
-import Navbar from "./navbar";
-import ProfileCard from "./ProfileCard";
+import React, { useState } from "react";
 import 'bulma/css/bulma.css'
-import image from './Images/img.avif'
 import './App.css';
+import Navbar from "./navbar";
+import CreateTeam from "./CreateTeam";
+import Footer from "./Footer";
+import axios from 'axios';
+import TeamList from "./teamList";
+import Accepted from "./accepted";
+import Pending from "./pending";
+import { Routes, Route } from "react-router-dom";
+import Dashboard from "./dashboard";
+import Teams from "./teams";
 
 function App() {
-  const [posts, setPosts] = useState([]);
+  const [teams, setTeams] = useState([]);
 
-  const handleClick = () => {
-    setPosts([...posts, image]);
-  };
-
-  const renderedPosts = posts.map((post, index) => {
-    return <ProfileCard title='Project' owner='@Sid' image={post} description='Project hai!!' key={index} />;
-  });
+  const addTeam = async (newTeam) => {
+    const response = await axios.post('http://localhost:3004/card', {
+      value: newTeam
+    });
+    const updatedTeam = [...teams, response.data.value];
+    setTeams(updatedTeam);
+  }
 
   return (
-    <div>
-      <div className="App"><Navbar /></div>
-      <div className="container">
-        <button className="button" onClick={handleClick}>Post</button>
-        {/* <div className="post-list">{renderedPosts}</div> */}
-        <section className="section">
-          <div className="columns">
-            <div className="column is-3">{renderedPosts}</div>
-          </div>
-        </section>
-      </div>
-    </div>
+    <div className="App">
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<h1>Home</h1>} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/create" element={<CreateTeam onadd={addTeam} />} />
+        <Route path="/Teams" element={<Teams />} />
+        <Route path="/Accepted" element={<Accepted />} />
+        <Route path="/Pending" element={<Pending />} />
+      </Routes>
+      <Footer />
+    </div >
   );
 }
 
