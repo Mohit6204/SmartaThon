@@ -1,7 +1,27 @@
 import { useState } from "react";
 import { Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 
-function Createteam({ onAdd }) {
+function Createteam() {
+    
+     const addTeam = async (newTeam) => {
+          try {
+            await axios.post('http://localhost:3004/card', {
+              value: newTeam
+            });
+            setTeam({
+               title: "",
+               description: "",
+               number: 0
+          });
+          navigate('/dashboard');
+          } catch (error) {
+            console.log(error);
+          }
+        }
+
+     const navigate=useNavigate();
      const [team, setTeam] = useState({
           title: "",
           description: "",
@@ -10,21 +30,11 @@ function Createteam({ onAdd }) {
 
      function handlechange(event) {
           const { name, value } = event.target;
-
           setTeam(pr => {
                return {
                     ...pr,
                     [name]: value
                };
-          });
-     }
-
-     function submitteam() {
-          onAdd(team);
-          setTeam({
-               title: "",
-               description: "",
-               number: 0
           });
      }
 
@@ -49,7 +59,7 @@ function Createteam({ onAdd }) {
                               <input type="number" id="req" onChange={handlechange} name="number" value={team.number}></input>
                          </div>
                          <br></br>
-                         <Button variant="primary" onClick={submitteam}>Submit</Button>
+                         <Button variant="primary" onClick={()=>{addTeam(team)}}>Submit</Button>
                     </form>
                </div>
           </div>

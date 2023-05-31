@@ -1,9 +1,27 @@
-import TeamList from "./teamList";
+import axios from "axios";
+import TeamShow from "./teamShow";
+import { useEffect, useState } from "react";
+function Dashboard() {
 
-function Dashboard({ teams }) {
+     const [teams,setTeams]=useState([]);
+     const getTeams= async()=>{
+          try {
+              const res= await axios.get('http://localhost:3004/card');
+               setTeams(res.data.reverse());
+          } catch (error) {
+               console.log(error);
+          }
+       };
+
+     useEffect(()=>{
+       getTeams();
+     },[]);
      return (
-          <h1>Dashboard</h1>
-          <TeamList teams={teams} />
+          <div className="team-list">
+               {teams.map((team) => {
+                    return <TeamShow key={team.id} team={team} getTeams={getTeams}/>
+               })}
+          </div>
      );
 }
 export default Dashboard;

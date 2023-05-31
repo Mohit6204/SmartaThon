@@ -5,7 +5,7 @@ function Navbartop() {
   return (
     <Navbar bg="dark" expand="lg" variant='dark'>
       <Container fluid>
-        <Navbar.Brand href="/">Team Finder</Navbar.Brand>
+      <NavLink className="navbrand" to="/">Team Finder</NavLink>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: '200px' }} navbarScroll>
